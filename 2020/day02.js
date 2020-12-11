@@ -1,7 +1,6 @@
 const fs = require('fs');
-const INPUTS = JSON.parse(fs.readFileSync('day2.json'));
+const INPUTS = JSON.parse(fs.readFileSync('day02.json'));
 
-// PART I
 var right = 0;
 INPUTS.forEach(row => {
     let rules = row.split(' ')[0].split('-');
@@ -13,9 +12,8 @@ INPUTS.forEach(row => {
         right++;
 
 });
-console.log('PART I:', right);
+console.log('✨ PART I:', right);
 
-// PART II
 var right = 0;
 INPUTS.forEach(row => {
     let rules = row.split(' ')[0].split('-');
@@ -26,4 +24,4 @@ INPUTS.forEach(row => {
         right++;
 
 });
-console.log('PART II:', right);
+console.log('✨ PART II:', right);
