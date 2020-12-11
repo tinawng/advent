@@ -1,5 +1,5 @@
 const fs = require('fs');
-const INPUTS = JSON.parse(fs.readFileSync('day9.json'));
+const INPUTS = JSON.parse(fs.readFileSync('day09.json'));
 
 var invalid_num = undefined;
 for (let i = 25; i < INPUTS.length; i++) {
@@ -13,7 +13,7 @@ for (let i = 25; i < INPUTS.length; i++) {
 
     if (!valid) invalid_num = check_num;
 }
-console.log("PART I", invalid_num);
+console.log("✨ PART I", invalid_num);
 
 
 const invalid_index = INPUTS.indexOf(invalid_num);
@@ -25,7 +25,7 @@ for (let i = 0; i < range.length; i++) {
         numbers.push(range[j]);
         const sum = numbers.reduce((x, y) => x + y);
         if (sum >= invalid_num) {
-            if (sum == invalid_num) console.log("PART II", Math.max(...numbers) + Math.min(...numbers));
+            if (sum == invalid_num) console.log("✨ PART II", Math.max(...numbers) + Math.min(...numbers));
             break;
         }
     }
