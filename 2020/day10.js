@@ -6,6 +6,7 @@ var one = 0;
 var three = 1;
 INPUTS.sort()
 
+// ✨ PART I
 while (hgt_val < Math.max(...INPUTS)) {
     INPUTS.forEach(val => {
         if (val <= hgt_val + 3 && val > hgt_val) {
@@ -18,8 +19,9 @@ while (hgt_val < Math.max(...INPUTS)) {
         }
     });
 }
-console.log("PART I", one * three);
+console.log("✨ PART I", one * three);
 
+// ✨ PART II
 var sorted_inputs = [];
 var hgt_val = 0
 while (hgt_val < Math.max(...INPUTS)) {
@@ -46,8 +48,9 @@ var res = 1
 groups.forEach(tab => {
     res *= tribonacci(tab.length)
 });
-console.log("PART II", res*1.75); // don't ask
+console.log("✨ PART II", res*1.75); // don't ask
 
+// 💫 Functions
 function tribonacci(val) {
     switch (val) {
         case 1:
