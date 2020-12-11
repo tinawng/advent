@@ -1,5 +1,5 @@
 const fs = require('fs');
-const INPUTS = JSON.parse(fs.readFileSync('day4.json'));
+const INPUTS = JSON.parse(fs.readFileSync('day04.json'));
 
 const fields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
 const eye_colors = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'];
@@ -9,7 +9,7 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 var valid = 0;
 valid = INPUTS.filter((passport) => fields.every((currentValue) => passport.reduce(reducer).includes(currentValue))).length;
-console.log("PART I", valid);
+console.log("✨ PART I", valid);
 
 valid = 0
 INPUTS.forEach(passport => {
@@ -54,5 +54,4 @@ INPUTS.forEach(passport => {
 
     valid = is_valid ? ++valid : valid
 });
-
-console.log("PART II", valid);
+console.log("✨ PART II", valid);
