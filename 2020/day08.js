@@ -1,10 +1,10 @@
 const fs = require('fs');
-const INPUTS = JSON.parse(fs.readFileSync('day8.json'));
+const INPUTS = JSON.parse(fs.readFileSync('day08.json'));
 
-// PART I
+console.log("✨ Part I");
 exec_inst([...INPUTS], true)
 
-// PART II
+console.log("✨ Part II");
 for (let i = 0; i < INPUTS.length; i++) {
     const instruction = INPUTS[i];
     const new_list = [...INPUTS];
@@ -19,6 +19,7 @@ for (let i = 0; i < INPUTS.length; i++) {
     }
 }
 
+// 💫 Functions
 function exec_inst(list, ignore_fail = false) {
     var fail = false, acc = 0;
 
