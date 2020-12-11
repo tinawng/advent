@@ -1,5 +1,5 @@
 const fs = require('fs');
-const INPUTS = JSON.parse(fs.readFileSync('day3.json'));
+const INPUTS = JSON.parse(fs.readFileSync('day03.json'));
 
 function slide(right, down) {
     var pos = [0, 0]
@@ -18,11 +18,5 @@ function checkTree(pos) {
     return INPUTS[y][x] == '#';
 }
 
-console.log('PART I:', slide(3, 1));
-
-var sum = slide(1, 1);
-sum *= slide(3, 1)
-sum *= slide(5, 1)
-sum *= slide(7, 1)
-sum *= slide(1, 2)
-console.log('PART II:', sum);
+console.log('✨ PART I:', slide(3, 1));
+console.log('✨ PART II:', [slide(1, 1), slide(3, 1), slide(5, 1), slide(7, 1), slide(1, 2)].reduce((x, y) => x * y));
