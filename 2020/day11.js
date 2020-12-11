@@ -9,6 +9,7 @@ var len_x = 90, len_y = 97;
 var room = [...INPUTS];
 var occupied_seats = undefined
 
+// ✨ PART I
 while (true) {
     let new_room = [...room];
     for (let y = 0; y < len_y; y++) {
@@ -26,11 +27,10 @@ while (true) {
     occupied_seats = occupiedSeats(new_room)
     room = [...new_room];
 }
-console.log("PART I", occupied_seats);
+console.log("✨ PART I", occupied_seats);
 
-
+// ✨ PART II
 var room = [...INPUTS];
-
 while (true) {
     let new_room = [...room];
     for (let y = 0; y < len_y; y++) {
@@ -48,9 +48,9 @@ while (true) {
     occupied_seats = occupiedSeats(new_room)
     room = [...new_room];
 }
-console.log("PART II", occupied_seats);
+console.log("✨ PART II", occupied_seats);
 
-
+// 💫 Functions
 function occupiedSeatsAround(room, x, y) {
     var occ_seats = 0;
     for (let ix = x - 1; ix <= x + 1; ix++)
