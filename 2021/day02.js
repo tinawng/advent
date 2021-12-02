@@ -1,35 +1,20 @@
 const fs = require('fs');
 const INPUTS = fs.readFileSync("day02.txt").toString().split("\n");
 
-var hz = 0, vr = 0;
-for (const command of INPUTS) {
-    let [dir, amt] = command.split(' ')
-    if ('forward' == dir) {
-        hz += parseInt(amt);
-    }
-    else if ('up' == dir) {
-        vr -= parseInt(amt);
-    }
-    else if ('down' == dir) {
-        vr += parseInt(amt);
-    }
-}
+let hz = 0, vr = 0;
+let mapping = {
+    down: (amt) => vr += amt,
+    up: (amt) => vr -= amt,
+    forward: (amt) => hz += amt
+};
+INPUTS.map(cmd => cmd.split(' ')).forEach(cmd => mapping[cmd[0]](+cmd[1]))
+console.log('✨ PART I:', hz * vr);
 
-console.log('✨ PART I:', hz*vr);
-
-var hz = 0, vr = 0, aim = 0;
-for (const command of INPUTS) {
-    let [dir, amt] = command.split(' ')
-    if ('forward' == dir) {
-        hz += parseInt(amt);
-        vr+= aim*parseInt(amt);
-    }
-    else if ('up' == dir) {
-        aim -= parseInt(amt);
-    }
-    else if ('down' == dir) {
-        aim += parseInt(amt);
-    }
-}
-
-console.log('✨ PART II:', hz*vr);
+hz = 0, vr = 0, aim = 0;
+mapping = {
+    down: (amt) => aim += amt,
+    up: (amt) => aim -= amt,
+    forward: (amt) => { hz += amt; vr += aim * amt }
+};
+INPUTS.map(cmd => cmd.split(' ')).forEach(cmd => mapping[cmd[0]](+cmd[1]))
+console.log('✨ PART II:', hz * vr);
